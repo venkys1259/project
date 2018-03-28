@@ -68,6 +68,15 @@ public class LinkedListImpl {
       temp.setLinkedNode(null);
    }
 
+   private void removeAtPosition(int position){
+       position = position-1;
+       Node temp = first;
+       for(int i = 0; i<position-1; i++){
+           temp = temp.linkedNode;
+       }
+       temp.setLinkedNode(temp.getLinkedNode().getLinkedNode());
+   }
+
    private void printElements(){
        Node node = first;
        while(node!=null){
@@ -94,6 +103,9 @@ public class LinkedListImpl {
         linkedList.removeAtStart();
         System.out.println("========");
         linkedList.printElements();
+       linkedList.removeAtPosition(3);
+        System.out.println("========");
+       linkedList.printElements();
 
     }
 }
