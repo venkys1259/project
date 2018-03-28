@@ -87,13 +87,17 @@ public class LinkedListImpl {
        temp.setLinkedNode(temp.getLinkedNode().getLinkedNode());
    }
 
+   private void removeElementsGraterThanMe(int x){
+
+   }
+
+
    private void printElements(){
        Node node = first;
        while(node!=null){
            System.out.println(node.data);
            node = node.getLinkedNode();
        }
-
    }
 
     public static void main(String[] args) {
