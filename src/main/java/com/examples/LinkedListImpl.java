@@ -44,6 +44,11 @@ public class LinkedListImpl {
    private void insertAtPosition(int position, int data){
        Node dummy = new Node(data,null);
        Node temp = first;
+       if(position == 1){
+           first = dummy;
+           dummy.setLinkedNode(temp);
+           return ;
+       }
        position = position - 1;
        for(int i = 1; i<position;i++){
            temp = temp.linkedNode;
@@ -69,8 +74,13 @@ public class LinkedListImpl {
    }
 
    private void removeAtPosition(int position){
-       position = position-1;
        Node temp = first;
+       if(position == 1){
+           temp = temp.getLinkedNode();
+           first = temp;
+           return ;
+       }
+       position = position-1;
        for(int i = 0; i<position-1; i++){
            temp = temp.linkedNode;
        }
@@ -92,8 +102,9 @@ public class LinkedListImpl {
         linkedList.insertAtStart(7);
         linkedList.insertAtStart(9);
         linkedList.insertAtStart(12);
+        linkedList.insertAtStart(15);
         linkedList.printElements();
-        linkedList.insertAtPosition(4,10);
+        linkedList.insertAtPosition(3,10);
         System.out.println("========");
         linkedList.printElements();
         System.out.println("========");
@@ -103,9 +114,9 @@ public class LinkedListImpl {
         linkedList.removeAtStart();
         System.out.println("========");
         linkedList.printElements();
-       linkedList.removeAtPosition(3);
+        linkedList.removeAtPosition(4);
         System.out.println("========");
-       linkedList.printElements();
+        linkedList.printElements();
 
     }
 }
