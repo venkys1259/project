@@ -28,12 +28,12 @@ public class AnagramsTest {
     public static void main(String[] args) {
         String[] words = {"eat","tae","ate","can","nac","abc","def"};
         Map<String, List<String>> anagramsMasterMap = AnagramsTest.anagrams(words);
-       Map<String, List<String>> anagramMap = new HashMap<>();
+        List<List<String>> anagramList = new ArrayList<>();
         for(Map.Entry<String,List<String>> angram : anagramsMasterMap.entrySet()){
             if(angram.getValue().size() > 1){
-                anagramMap.put(angram.getKey(),angram.getValue());
+                anagramList.add(angram.getValue());
             }
         }
-        System.out.println(anagramMap);
+        System.out.println(anagramList);
     }
 }
